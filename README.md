@@ -6,6 +6,8 @@
 
 Ever looked at your adopted dog and wondered, "What in the world are you?" Introducing Mongrel Classifier! This nifty React app uses some fancy TensorFlow magic to guess your dog's breed from photos you upload.
 
+Results for my "dog":
+
 <div align="center"><img src="https://github.com/RastkoD/Mongrel_Classifier/blob/main/src/assets/mongrelClassifier.png"></div>
 
 ## Features
