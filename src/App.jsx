@@ -1,7 +1,7 @@
-import React, { useReducer, useState, useRef } from "react";
+import React, { useReducer, useState, useRef, useEffect } from "react";
 import "./App.css";
 import * as mobilenet from "@tensorflow-models/mobilenet";
-import * as tf from '@tensorflow/tfjs'
+import * as tf from '@tensorflow/tfjs';
 
 const stateMachine = {
   initial: "initial",
@@ -42,7 +42,9 @@ const formatResult = ({ className, probability }) => (
 );
 
 const App = () => {
-  tf.setBackend("webgl");
+  useEffect(() => {
+    tf.setBackend("webgl");
+  }, []);
 
   const [state, dispatch] = useReducer(reducer, stateMachine.initial);
   const [imageUrl, setImageUrl] = useState(null);
@@ -71,10 +73,12 @@ const App = () => {
 
   const identify = async () => {
     next();
-    const classificationResults = await model.classify(imageRef.current);
+    const resizedImage = tf.browser.fromPixels(imageRef.current).resizeNearestNeighbor([224, 224]);
+    const classificationResults = await model.classify(resizedImage);
     classificationResults.sort((a, b) => b.probability - a.probability);
     setResults(classificationResults);
     next();
+    tf.dispose(resizedImage);
   };
 
   const reset = () => {
