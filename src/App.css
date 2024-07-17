@@ -1,6 +1,7 @@
 body {
   color: rgb(243, 243, 243);
   background: rgb(17, 17, 17);
+  overflow-x: hidden;
 }
 
 div {
@@ -9,6 +10,7 @@ div {
   text-align: center;
   align-items: center;
   padding: 0 2rem 2rem 2rem;
+  overflow-x: hidden;
 }
 
 input {
@@ -22,10 +24,10 @@ input {
 
 button {
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 button:hover {
-  cursor: pointer;
   background: rgb(17, 17, 17);
 }
 
@@ -55,7 +57,28 @@ ul {
   margin-bottom: 25px;
 }
 
+li {
+  display: flex;
+  flex-direction: column;
+}
+
 li:not(:last-child) {
   padding: 10px;
-  border-bottom: solid 1px rgb(173, 173, 173);
+  border-bottom: solid 1px rgb(211, 211, 211);
+}
+
+.search-button {
+  background-color: rgb(212, 212, 212);
+  color: rgb(17, 17, 17);
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  width: max-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: rgb(17, 17, 17);
+  color: rgb(212, 212, 212);
 }

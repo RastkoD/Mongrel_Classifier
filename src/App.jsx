@@ -1,7 +1,6 @@
 import React, { useReducer, useState, useRef } from "react";
 import "./App.css";
 import * as mobilenet from "@tensorflow-models/mobilenet";
-import { ready } from "@tensorflow/tfjs";
 
 const stateMachine = {
   initial: "initial",
@@ -24,8 +23,21 @@ const reducer = (currentState, event) => {
   return nextState || stateMachine.initial;
 };
 
+const generateSearchURL = (query) => {
+  return `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
+};
+
 const formatResult = ({ className, probability }) => (
-  <li key={className}>{`${className}: ${(probability * 100).toFixed(2)}%`}</li>
+  <li key={className}>
+    {`${className}: ${(probability * 100).toFixed(2)}% `}
+    <a
+      href={generateSearchURL(className)}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button className="search-button">Show</button>
+    </a>
+  </li>
 );
 
 const App = () => {
@@ -57,6 +69,7 @@ const App = () => {
   const identify = async () => {
     next();
     const classificationResults = await model.classify(imageRef.current);
+    classificationResults.sort((a, b) => b.probability - a.probability);
     setResults(classificationResults);
     next();
   };
@@ -65,7 +78,7 @@ const App = () => {
     setResults([]);
     setImageUrl(null);
     next();
-  }
+  };
 
   const buttonProps = {
     initial: { text: "Load Model", action: loadModel },
@@ -83,9 +96,13 @@ const App = () => {
 
   return (
     <div>
-      <h1>Animal Classifier</h1>
+      <h1>Mongrel Classifier</h1>
       {showImage && <img alt="uploaded image" src={imageUrl} ref={imageRef} />}
-      {showResults && <ul>{results.map(formatResult)}</ul>}
+      {showResults && (
+        <div>
+          <ul>{results.map(formatResult)}</ul>
+        </div>
+      )}
       <input
         type="file"
         accept="image/*"
