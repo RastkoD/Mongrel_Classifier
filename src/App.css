@@ -60,6 +60,8 @@ ul {
 li {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 li:not(:last-child) {
@@ -72,10 +74,13 @@ li:not(:last-child) {
   color: rgb(17, 17, 17);
   border: none;
   font-size: 0.9rem;
-  padding: 0.4rem;
+  padding: 0.6rem;
+  margin: 0.8rem;
   width: max-content;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .search-button:hover {

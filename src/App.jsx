@@ -1,6 +1,7 @@
 import React, { useReducer, useState, useRef } from "react";
 import "./App.css";
 import * as mobilenet from "@tensorflow-models/mobilenet";
+import * as tf from '@tensorflow/tfjs'
 
 const stateMachine = {
   initial: "initial",
@@ -30,17 +31,19 @@ const generateSearchURL = (query) => {
 const formatResult = ({ className, probability }) => (
   <li key={className}>
     {`${className}: ${(probability * 100).toFixed(2)}% `}
-    <a
+    <a className="search-button"
       href={generateSearchURL(className)}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <button className="search-button">Show</button>
+    Show
     </a>
   </li>
 );
 
 const App = () => {
+  tf.setBackend("cpu");
+  
   const [state, dispatch] = useReducer(reducer, stateMachine.initial);
   const [imageUrl, setImageUrl] = useState(null);
   const [model, setModel] = useState(null);
