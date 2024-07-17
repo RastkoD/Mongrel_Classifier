@@ -42,8 +42,8 @@ const formatResult = ({ className, probability }) => (
 );
 
 const App = () => {
-  tf.setBackend("cpu");
-  
+  tf.setBackend("webgl");
+
   const [state, dispatch] = useReducer(reducer, stateMachine.initial);
   const [imageUrl, setImageUrl] = useState(null);
   const [model, setModel] = useState(null);
