@@ -1,17 +1,66 @@
 # Mongrel Classifier
 
-### React + Vite, TensorFlow.js + Mobilenet
+A machine learning-powered web application built with React and TensorFlow.js that predicts dog breeds from user-uploaded images.  
+The project focuses on client-side ML inference, interactive UI, and a smooth, user-friendly classification workflow.
 
-### :rocket: [MongrelClassifier](https://mongrelclassifier.netlify.app/)
+---
 
-Ever looked at your adopted dog and wondered, "What in the world are you?" Introducing Mongrel Classifier! This nifty React app uses some fancy TensorFlow magic to guess your dog's breed from photos you upload.
+## 🧠 Project Focus
 
-Results for my "dog":
+- Browser-based machine learning inference
+- Image classification using pre-trained neural networks
+- Interactive, real-time user feedback
+- Performance-conscious client-side processing
+- Clean, modern React application architecture
 
-<div align="center"><img src="https://github.com/RastkoD/Mongrel_Classifier/blob/main/src/assets/mongrelClassifier.png"></div>
+---
 
-## Features
+## 🛠️ Tech Stack
 
-- **Upload & Identify:** Upload a snap of your dog and let the magic begin!
-- **Search Results:** Get breed guesses with probabilities and easily search for more pics of the identified breed.
-- **One-Click Reset:** Clear results and upload another pic in a jiffy.
+- React (Vite)
+- JavaScript (ES6+)
+- TensorFlow.js
+- MobileNet (pre-trained model)
+
+---
+
+## ✨ Key Features
+
+- Upload images to classify dog breeds
+- Real-time inference using TensorFlow.js in the browser
+- Confidence-based prediction results
+- Breed search and discovery flow
+- Reset and reclassification workflow
+- Responsive, user-friendly interface
+- Lightweight, client-side execution (no backend dependency)
+
+---
+
+## 🧩 Implementation Highlights
+
+- Client-side ML inference with MobileNet
+- Image preprocessing and model input optimization
+- React state-driven UI updates and result rendering
+- Probabilistic result ranking and display
+- Modular component structure for maintainability
+- Optimized loading flow for model initialization and inference performance
+
+---
+
+## 🖼️ Example Classification Output
+
+<div align="center">
+  <img src="https://github.com/RastkoD/Mongrel_Classifier/blob/main/src/assets/mongrelClassifier.png" alt="Mongrel Classifier Results Preview">
+</div>
+
+---
+
+## 🚀 [Live Demo](https://mongrelclassifier.netlify.app/)
+Deployed via Netlify.
+
+---
+
+## 📁 Repository Purpose
+
+This repository represents an **experimental machine learning web app**, showcasing TensorFlow.js integration, client-side AI workflows, and interactive React-based UI development.  
+It demonstrates practical ML-in-the-browser implementation without requiring a backend server.
