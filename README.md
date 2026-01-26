@@ -1,4 +1,4 @@
-# Mongrel Classifier
+# Mongrel Classifier 🐶
 
 A machine learning-powered web application built with React and TensorFlow.js that predicts dog breeds from user-uploaded images.  
 The project focuses on client-side ML inference, interactive UI, and a smooth, user-friendly classification workflow.
@@ -64,3 +64,14 @@ Deployed via Netlify.
 
 This repository represents an **experimental machine learning web app**, showcasing TensorFlow.js integration, client-side AI workflows, and interactive React-based UI development.  
 It demonstrates practical ML-in-the-browser implementation without requiring a backend server.
+
+---
+
+## 🧪 Running Locally
+
+The app performs inference entirely in the browser — no backend required.
+Clone the repository and install dependencies:
+
+```bash
+npm install
+npm run dev
